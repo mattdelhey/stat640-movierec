@@ -6,12 +6,32 @@
 ##########################
 library(plyr)
 
+f_out <- "Submissions/colmeans_usermeans_centered.csv"
 d_in <- "Data/train_ratings.csv"
 trmat <- as.matrix(read.csv(d_in, header = TRUE))
 
 # Create predicition matrix (n x p)
 mmean <- apply(trmat, 2, mean, na.rm = TRUE)
 predmat <- matrix(1, nrow(trmat)) %x% t(mmean)
+
+# Find user difference from mean
+mean_rating <- mean(as.vector(trmat), na.rm = TRUE)
+umean <- apply(trmat, 1, mean, na.rm = TRUE)
+dmean <- umean - mean_rating
+
+## dmean2 <- rep(NA, nrow(trmat))
+## for (i in 1:nrow(trmat)) {
+##     ur_movies <- names(trmat[i, !is.na(trmat[i, ])])
+##     mean_rating_subset <- mean(trmat[, ur_movies], na.rm = TRUE)
+##     dmean2[i] <- (umean - mean_rating_subset)
+## }
+
+dmat <- matrix(dmean, nrow = nrow(trmat), ncol = ncol(trmat))
+#dmat <- matrix(dmean2, nrow = nrow(trmat), ncol = ncol(trmat))
+
+# Create new predmat
+predmat <- predmat + dmat
+
 # Keep predictions for eval
 predmat_eval <- predmat
 # Replace predictions with known review scores (for benchmark)
@@ -22,7 +42,7 @@ n <- dim(predmat)[1]
 p <- dim(predmat)[2]
 bench <- cbind(c(1:(n*p)), c(predmat))
 colnames(bench) <- c("ID", "Rating")
-#write.csv(bench, file = "benchmark_movielens.csv", quote = FALSE, row.names = FALSE)
+#write.csv(bench, file = f_out, quote = FALSE, row.names = FALSE)
 
 # Generate training (true) values (review id, true)
 train <- cbind(c(1:(n*p)), c(trmat))

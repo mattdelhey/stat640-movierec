@@ -1,4 +1,4 @@
 "Date","Method","Training.Error","Test.Error","Leaderboard.Error"
 "09-04","Benchmark",0.9720241,NA,0.98836
-"9-10"
-"9-10","VW regression, all cols",0.919549,,0.96224
+"9-10","wat",0.5,0.7,1
+"9-10","VW regression, all cols",0.919549,,0.96224,1

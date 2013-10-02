@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.9.7)  2 OCT 2013 02:04
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.9.7)  2 OCT 2013 04:14
 entering extended mode
  %&-line parsing enabled.
 **\input report.tex
@@ -248,31 +248,35 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `OT1/bch/bx/n' in size <10> not available
 (Font)              Font shape `OT1/bch/b/n' tried instead on input line 34.
-LaTeX Font Info:    Try loading font information for OMS+bch on input line 42.
- (/usr/share/texmf-texlive/tex/latex/psnfss/omsbch.fd
+ <vis.pdf, id=3, 505.89pt x 216.81pt>
+File: vis.pdf Graphic file (type pdf)
+ <use vis.pdf>
+LaTeX Font Info:    Try loading font information for OMS+bch on input line 44.
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/omsbch.fd
 File: omsbch.fd 
 )
 LaTeX Font Info:    Font shape `OMS/bch/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 42.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 44.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./report.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./vis.pdf>] (./report.aux)
+ ) 
 Here is how much of TeX's memory you used:
- 5339 strings out of 493848
- 80675 string characters out of 1152824
- 153277 words of memory out of 3000000
- 8569 multiletter control sequences out of 15000+50000
+ 5349 strings out of 493848
+ 80796 string characters out of 1152824
+ 154277 words of memory out of 3000000
+ 8576 multiletter control sequences out of 15000+50000
  7302 words of font info for 18 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 38i,4n,38p,419b,291s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/shar
-e/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texlive/fonts/typ
-e1/bitstrea/charter/bchb8a.pfb></usr/share/texmf-texlive/fonts/type1/bitstrea/c
-harter/bchr8a.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy
-10.pfb>
-Output written on report.pdf (1 page, 38354 bytes).
+ 38i,5n,38p,419b,291s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
+ve/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/share/texmf-texlive/fonts/type
+1/bitstrea/charter/bchr8a.pfb></usr/share/texmf-texlive/fonts/type1/public/amsf
+onts/cm/cmsy10.pfb>
+Output written on report.pdf (1 page, 42609 bytes).
 PDF statistics:
- 24 PDF objects out of 1000 (max. 8388607)
- 2 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 PDF objects out of 1000 (max. 8388607)
+ 3 named destinations out of 1000 (max. 500000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
