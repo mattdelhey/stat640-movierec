@@ -2,7 +2,7 @@
 ----------
 "\*YOU\* are full of bullshit." - Linus Torvalds
 
-## Notes
+### Notes
 * How does rounding effect results?
-    * Rounding in edge cases (i.e. round x.95-x.99 to x+1)?
+    * How about rounding in edge cases (i.e. round x.95-x.99 to x+1)?
 
