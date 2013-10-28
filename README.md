@@ -6,3 +6,5 @@
 * How does rounding effect results?
     * How about rounding in edge cases (i.e. round x.95-x.99 to x+1)?
 
+* How about imputing and then taking into account certain users/movies biases?
+
