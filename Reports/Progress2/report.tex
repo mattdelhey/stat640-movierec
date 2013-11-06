@@ -31,33 +31,30 @@
 \end{center}
 
 \begin{center}
-  \includegraphics[width = 0.7\linewidth]{vis}
+  \includegraphics[width = 0.75\linewidth]{vis}
 \end{center}
 
-{\small
 \begin{description}
-\item[What learning algorithms have you tried?]
-  \begin{itemize}
+\item[What learning algorithms have you tried?] 
+Since the last progress report we've focused on implementing two general types of learning algorithms: matrix factorization and k-nearest neighbors. Our original goal for this project report was to have a successful (i.e. reasonable error) submission for both of these learning algorithms as well as a simple ensemble of these two methods.
 
-  \item \textbf{colmeans} The colmeans idea started with the provided benchmark, but we wanted some way to take in account individual users as well. We first accomplished this by subtracting the overall movie rating average (around 3.5) from the user's average movie rating and then adding this number to all the user's predicted ratings. This resulted in our highest performing algorithm. 
+We had some success with matrix factorization. We were able to implement a matrix completion model using the nuclear-norm regularization on the SVD as we discussed in class, using cross-validation to select the best regularization parameter.
 
-We then tried doing the same thing except instead of subtracting the overall movie rating average from the user's average, we subtracted only the rating average for movies that the user had rated. The idea was that this would account for the types of movies the user had rated which might not be representative of the entire set of movies and so would misrepresent the user's ratings relative to the average. The result of this formulation of colmeans actually performed the worst out of all of our submissions. We believe this is because the model overfit to the movies that the user had rated, i.e. the training data.
+We found less success with k-nearest neighbors. Our first attempt was to calculate the Pearson correlation between the normalized rows and columns. This approach was both an unwieldy computation and an over-estimator of similarity between users/movies that had very few ratings. We're currently exploring other alternatives for approximating similarity both item-wise and user-wise, but computation remains a problem. As such, we've yet to meet our goal of a successful k-nearest neighbors submission.
 
-  \item \textbf{vow pal wabbit (vw)} One idea we had was to try linear regression. We converted the data set into a format that had one row for each rating and then joined the data with relevant user and movie columns. In this format the data was too large to run even a linear model in R on our local machines, so instead we used a program called \textit{vowpal wabbit}, a very fast linear learner. The predictions resulting form the algorithm seemed to overfit to the training data. Additionally, a linear model may not be an appropriate solution to such a collaborative filtering problem.
+\item[Performance. Which algorithms worked well? Which performed poorly? Why?]
+Our matrix factorization approach has performed the best for us so far. This isn't too surprising given the renowned success of the SVD to collaborative filtering problems similar to ours. 
 
-  \item \textbf{soft impute} We wanted to experiment with a method that makes heavy use of Singular Value Decomposition since the SVD gives you a low rank approximation of the decomposed matrix and helps break down the problem into a more palatable format. The 'softimpute' algorithm uses iterative soft-thresholded svds to impute the missing values.
-  \end{itemize}
+We suspect that our k-nearest neighbors approach with appropriate prepossessing and  value of \verb|k| would score comparably to our matrix completion. 
 
-\item[Performance. Which algorithms worked well? Which performed poorly? Why?] The above graphic provides a summary of the performance of each method that we tried. The first bar represents the training error, the second bar represents the in-house testing error, and the final bar represents the leaderboard error. As stated, our implementation of colmeans has so far given us the best leaderboard error. We believe this is because it does a decent job of taking in account user preferences and movie tendencies through its high level aggregation. \textit{Vowpal wabbit} returned our worst leaderboard error due to overfitting of the training data. A naive implementation of the softImpute algorithm yielded pretty good results. However, we did not yet optimize the model parameters. This could potentially improve the model significantly.
+We also suspect that our blend or ensemble of these two methods would score reasonably better than just matrix factorization alone. Indeed, literature on the topic notices how these two methods complement each other on similar sparse datasets. At the same time, we suspect that even such an ensemble would most likely not place us at the front of the leader-board and so cannot be our only move forward. 
 
-\item[Project organization.] In order to deal with the inevitable technical problems of collaboration, our team has setup a github repository to share code and results. We've also both setup DAVinCI accounts and successfully ran jobs on the cluster. Looking forward, we are in the process of creating a shared folder on DAVinCI and plan on utilizing the cluster for future computations.
+\item[Project organization and innovation.] 
+Our project organization has remained more or less the same since the last project report. Our level of innovation, however, is a bit more vague. On the one hand, we are still working on implementing many of the methods in the literature. On the other hand, we are operating a higher level of sophistication on our problem than we were one month ago. As we approach the end of the competition and begin to push the limits of our methods as discussed specifically in the literature we hope to make some novel improvements to our methods. 
 
-{\footnotesize
-\item[Have you innovated? If so, how?] As of now we have not innovated in any interesting way. We believe that there is still a lot of performance we can squeeze out of more basic implementations.
+\item[What are the future direction in which you would like to go?]
+One future direction that we would like to move towards is utilizing the additional data outside of the ratings matrix. The literature on the Netflix prize seems to indicate that proper utilization of this additional user and movie data (although our additional data is in many important ways different) is key to getting a great score.
 
-
-\item[What are the future direction in which you would like to go?] Looking forward, we want to keep experimenting with novel algorithms and methods. We expect that our best performance at the end of the competition will result from an ensemble of models we have built in the interim and believe that such experimentation will pay off with a superior final model.
-}
 
 \end{description}
 
