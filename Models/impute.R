@@ -2,7 +2,7 @@
 library(softImpute)
 
 # i/o params
-f_out <- "Submissions/softimpute_blend.csv"
+f_out <- "Submissions/softimpute_lower_lam.csv"
 d_in <- "Data/train_ratings.csv"
 
 # Working directory (for cloud)
@@ -23,7 +23,7 @@ lam <- lambda0(X, lambda = 0, maxit = 1000,
                trace.it = FALSE, thresh = 1e-06)
 
 # Fit & Complete
-X_fit <- softImpute(X, rank.max = min(dim(X)), lambda = lam,
+X_fit <- softImpute(X, rank.max = min(dim(X)), lambda = 50,
                     type = "svd", thresh = 1e-06, maxit = 1000)
 X_out <- complete(trmat, X_fit)
 
@@ -33,27 +33,30 @@ X_out <- force_bounds(X_out)
 # Write to file
 write_predmat(X_out, f_out = f_out)
 
-### Imputing
+###
+### Imputation package
+###
 #library(imputation)
-#X_fit2 <- cv.SVDImpute(X, k = dim(X)[2])
+#lam_imp <- cv.SVDImpute(trmat, k = dim(trmat)[2]/2)
+#lam_imp <- cv.SVDImpute(trmat, k = 5)
 
 ###
 ### Model Validation
 ###
 # Create train and test partitions
-test_rows <- sample(nrow(trmat), nrow(trmat)*0.4, replace = FALSE)
+test_rows <- sample(nrow(trmat), nrow(trmat)*0.4, replace = FALSE) 
 test_cols <- sample(ncol(trmat), ncol(trmat)*0.4, replace = FALSE)
 train_rows <- setdiff(1:nrow(trmat), test_rows)
 train_cols <- setdiff(1:ncol(trmat), test_cols)
 # Run cv over lambda's
-lam_cv <- 97:98
+lam_cv <- 1:2
 rmse_cv <- rep(NA, length(lam_cv))
 i <- 0
 for (l in lam_cv) {
     i <- i + 1
     X_trn <- biScale(trmat[train_rows, train_cols])
     X_cv <- softImpute(X_trn, rank.max = min(dim(X_trn)), lambda = l,
-                       type = "svd", thresh = 1e-06, maxit = 1000)
+                       type = "svd", thresh = 1e-05, maxit = 10)
     X_pred <- complete(trmat[test_rows, test_cols], X_cv)
     X_pred <- force_bounds(X_pred)
     x <- as.vector(trmat[test_rows, test_cols])
