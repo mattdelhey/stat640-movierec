@@ -2,7 +2,7 @@
 library(softImpute)
 
 # i/o params
-f_out <- "Submissions/softimpute_lower_lam.csv"
+f_out <- "Submissions/softimpute_cv_01.csv"
 d_in <- "Data/train_ratings.csv"
 
 # Working directory (for cloud)
@@ -25,6 +25,7 @@ lam <- lambda0(X, lambda = 0, maxit = 1000,
 # Fit & Complete
 X_fit <- softImpute(X, rank.max = min(dim(X)), lambda = 50,
                     type = "svd", thresh = 1e-06, maxit = 1000)
+
 X_out <- complete(trmat, X_fit)
 
 # Fix values less than 1, greater than 5
@@ -44,23 +45,47 @@ write_predmat(X_out, f_out = f_out)
 ### Model Validation
 ###
 # Create train and test partitions
-test_rows <- sample(nrow(trmat), nrow(trmat)*0.4, replace = FALSE) 
-test_cols <- sample(ncol(trmat), ncol(trmat)*0.4, replace = FALSE)
-train_rows <- setdiff(1:nrow(trmat), test_rows)
-train_cols <- setdiff(1:ncol(trmat), test_cols)
+#test_rows <- sample(nrow(trmat), nrow(trmat)*0.4, replace = FALSE) 
+#test_cols <- sample(ncol(trmat), ncol(trmat)*0.4, replace = FALSE)
+
+#train_rows <- setdiff(1:nrow(trmat), test_rows)
+#train_cols <- setdiff(1:ncol(trmat), test_cols)
+
+
+full <- which(!(is.na(trmat)))
+jumbled <- sample(full, length(full))
+q <- length(full) / 10
 # Run cv over lambda's
 lam_cv <- 1:2
-rmse_cv <- rep(NA, length(lam_cv))
+rmse_cv <- rep(NA, 100)
+
 i <- 0
 for (l in lam_cv) {
-    i <- i + 1
-    X_trn <- biScale(trmat[train_rows, train_cols])
-    X_cv <- softImpute(X_trn, rank.max = min(dim(X_trn)), lambda = l,
+  i <- i + 1
+  rmse_cv[i] <- 0
+  
+  for(j in 1:10) {
+    
+    CV_err <- 0
+    X_trn <- X
+    X_trn[jumbled[j * (1:q)]] <- NA
+    
+    X_cv <- softImpute(X_trn, rank.max = 40, lambda = 98,
                        type = "svd", thresh = 1e-05, maxit = 10)
-    X_pred <- complete(trmat[test_rows, test_cols], X_cv)
+    
+    X_pred <- complete(X_trn, X_cv)
     X_pred <- force_bounds(X_pred)
-    x <- as.vector(trmat[test_rows, test_cols])
-    rmse_cv[i] <- rmse(na.omit(x), as.vector(X_pred)[which(!is.na(x))])
+    
+    x <- as.vector(X_pred)
+    
+    rmse_cv[i] <- rmse_cv[i] + 
+                  rmse(x[jumbled[j * (1:q)]], 
+                       trmat[jumbled[j * (1:q)]])
+    
+  }
+  
+  rmse_cv[i] <- rmse_cv[i] / 10
+  
 }
 
 ## X_val <- trmat[!is.na(trmat)]
@@ -78,5 +103,4 @@ for (l in lam_cv) {
 
 ## # Evaluate on training data
 ## bench_eval <- subset(bench_eval, ID %in% train$ID)
-## bench_eval$True.Rating <- train$True.Rating
-## train_rmse <- rmse(bench_eval$True.Rating, bench_eval$Pred.Rating)
+## bench_eval$True.Rating <- train$True.Rating# train_rmse <- rmse(bench_eval$True.Rating, bench_eval$Pred.Rating)
