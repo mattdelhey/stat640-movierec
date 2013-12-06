@@ -1,18 +1,8 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.9.7)  6 NOV 2013 15:57
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.9.7)  6 DEC 2013 03:51
 entering extended mode
  %&-line parsing enabled.
-**report.tex
-(./report.tex
-LaTeX2e <2009/09/24>
-Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, farsi, arabic, croatian, bulgarian, ukrainian, russian, czech, slov
-ak, danish, dutch, finnish, french, basque, ngerman, german, german-x-2009-06-1
-9, ngerman-x-2009-06-19, ibycus, monogreek, greek, ancientgreek, hungarian, san
-skrit, italian, latin, latvian, lithuanian, mongolian2a, mongolian, bokmal, nyn
-orsk, romanian, irish, coptic, serbian, turkish, welsh, esperanto, uppersorbian
-, estonian, indonesian, interlingua, icelandic, kurmanji, slovenian, polish, po
-rtuguese, spanish, galician, catalan, swedish, ukenglish, pinyin, loaded.
-(/usr/share/texmf-texlive/tex/latex/base/article.cls
+**\input final.tex
+(./final.tex (/usr/share/texmf-texlive/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texmf-texlive/tex/latex/base/size10.clo
 File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
@@ -202,26 +192,41 @@ Package: titlesec 2007/08/12 v2.8 Sectioning titles
 \titlewidth=\dimen116
 \titlewidthlast=\dimen117
 \titlewidthfirst=\dimen118
-) (./report.aux)
-\openout1 = `report.aux'.
+) (./final.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Try loading font information for OT1+bch on input line 27.
+LaTeX Warning: Label `' multiply defined.
 
-(/usr/share/texmf-texlive/tex/latex/psnfss/ot1bch.fd
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+)
+\openout1 = `final.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Try loading font information for OT1+bch on input line 24.
+ (/usr/share/texmf-texlive/tex/latex/psnfss/ot1bch.fd
 File: ot1bch.fd 2004/10/18 font definitions for OT1/bch.
 )
 (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
@@ -237,7 +242,7 @@ File: ot1bch.fd 2004/10/18 font definitions for OT1/bch.
 \MPnumerator=\count100
 \everyMPtoPDFconversion=\toks20
 )
-Package hyperref Info: Link coloring OFF on input line 27.
+Package hyperref Info: Link coloring OFF on input line 24.
  (/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
 Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
 
@@ -246,56 +251,95 @@ Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
 )
 \c@section@level=\count101
 )
-LaTeX Info: Redefining \ref on input line 27.
-LaTeX Info: Redefining \pageref on input line 27.
- (./report.out)
-(./report.out)
+LaTeX Info: Redefining \ref on input line 24.
+LaTeX Info: Redefining \pageref on input line 24.
+ (./final.out)
+(./final.out)
 \@outlinefile=\write3
-\openout3 = `report.out'.
+\openout3 = `final.out'.
 
 \AtBeginShipoutBox=\box28
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 26.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 26.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 26.
 LaTeX Font Info:    Font shape `OT1/bch/bx/n' in size <10> not available
-(Font)              Font shape `OT1/bch/b/n' tried instead on input line 30.
- <vis.pdf, id=3, 505.89pt x 216.81pt>
+(Font)              Font shape `OT1/bch/b/n' tried instead on input line 27.
+LaTeX Font Info:    Font shape `OT1/bch/bx/n' in size <12> not available
+(Font)              Font shape `OT1/bch/b/n' tried instead on input line 27.
+ <vis.pdf, id=35, 794.97pt x 361.35pt>
 File: vis.pdf Graphic file (type pdf)
- <use vis.pdf>
-LaTeX Font Info:    Font shape `OT1/bch/bx/n' in size <9> not available
-(Font)              Font shape `OT1/bch/b/n' tried instead on input line 39.
-LaTeX Font Info:    Try loading font information for OMS+bch on input line 42.
+ <use vis.pdf> [1
 
-(/usr/share/texmf-texlive/tex/latex/psnfss/omsbch.fd
-File: omsbch.fd 
-)
-LaTeX Font Info:    Font shape `OMS/bch/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 42.
-LaTeX Font Info:    Font shape `OT1/bch/bx/n' in size <8> not available
-(Font)              Font shape `OT1/bch/b/n' tried instead on input line 56.
- [1
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./vis.pdf>]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 42.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 42.
+ [2] [3]
+<cvsi.pdf, id=63, 468.75125pt x 228.855pt>
+File: cvsi.pdf Graphic file (type pdf)
+ <use cvsi.pdf> [4 <./cvsi.pdf>]
+[5]
+Missing character: There is no â in font bchr7t!
+Missing character: There is no € in font bchr7t!
+Missing character: There is no ™ in font bchr7t!
+ [6pdfTeX warning (ext4): destination with the same identifier (name{cite.}) ha
+s been already used, duplicate ignored
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./vis.pdf>] (./report.aux)
- )
-(\end occurred inside a group at level 1)
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.123 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier
+ (name{cite.}) has been already used, duplicate ignored
 
-### simple group (level 1) entered at line 37 ({)
-### bottom level 
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.123 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier
+ (name{cite.}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.123 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier
+ (name{cite.}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.123 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier
+ (name{cite.}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.123 \end{document}
+                    ] (./final.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 5359 strings out of 493848
- 80877 string characters out of 1152824
+ 5416 strings out of 493848
+ 81412 string characters out of 1152824
  159277 words of memory out of 3000000
- 8581 multiletter control sequences out of 15000+50000
- 15582 words of font info for 28 fonts, out of 3000000 for 9000
+ 8614 multiletter control sequences out of 15000+50000
+ 21006 words of font info for 40 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 38i,4n,38p,868b,338s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/sha
-re/texmf-texlive/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/share/texmf-texl
-ive/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/share/texmf-texlive/fonts/typ
-e1/bitstrea/charter/bchri8a.pfb></usr/share/texmf-texlive/fonts/type1/public/am
-sfonts/cm/cmsy9.pfb>
-Output written on report.pdf (1 page, 55854 bytes).
+ 38i,6n,38p,1129b,356s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
+ve/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/share/texmf-texlive/fonts/type
+1/bitstrea/charter/bchr8a.pfb></usr/share/texmf-texlive/fonts/type1/bitstrea/ch
+arter/bchri8a.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi
+10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
+/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on final.pdf (6 pages, 104258 bytes).
 PDF statistics:
- 34 PDF objects out of 1000 (max. 8388607)
- 2 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 110 PDF objects out of 1000 (max. 8388607)
+ 18 named destinations out of 1000 (max. 500000)
+ 75 words of extra memory for PDF output out of 10000 (max. 10000000)
 
